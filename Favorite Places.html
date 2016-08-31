@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        width: 100%;
+        height: 400px;
+      }
+      h3 {
+        text-align: center;
+      }
+      body {
+       /* background-color: blue;*/
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>My Favorite Places Around My Neighborhood</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var myLatLng = {lat: 40.759604, lng: -73.922446};
+        var OmoniaLatLng = {lat: 40.761278, lng:-73.923912};
+        var VanillaSkyLatLng = {lat: 40.760773, lng:-73.923302};
+        var KaufmanAstoriaLatLng = {lat:40.754356, lng:-73.924095};
+        var MuseumLatLng = {lat: 40.756296, lng: -73.923944};
+        var SportsComplex = {lat: 40.756079, lng:-73.922492};
+        var LibraryLatLng = {lat: 40.758482, lng:-73.918605};
+        var Bookshop = {lat: 40.763460, lng:-73.923811};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: myLatLng
+        });
+        map.setOptions({
+        mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+
+        // Omonia Cafe
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Omonia Cafe</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "http://www.aplez.com/media/reviews/photos/original/ab/c1/e8/omonia-cafe-83-1392735272.png" style = "height:150px; width:250px"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoOmonia = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker = new google.maps.Marker({
+          position: OmoniaLatLng, 
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Omonia Cafe'
+        });
+        marker.addListener('click', function() {
+          InfoOmonia.open(map, marker);
+        });
+
+        //Vanilla Sky
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="secondHeading" class="secondHeading">Vanilla Sky</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "https://pbs.twimg.com/profile_images/378800000545650586/388e03f941942672ab11384d3fed96cf.jpeg" style = "height:190px;width:280px";></p>'+
+          '</div>'+
+          '</div>';
+        var InfoVanillaSky = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker2 = new google.maps.Marker({
+          position: VanillaSkyLatLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Vanilla Sky'
+        });
+        marker2.addListener('click', function() {
+          InfoVanillaSky.open(map, marker2);
+        });
+
+        // Kaufman Astoria
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="thirdHeading" class="thirdHeading">United Artists Kaufman Astoria 14</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "https://s3-media3.fl.yelpcdn.com/bphoto/3FGzdwukjbMAjpbTI9Th_g/o.jpg" style = "height:175px;width:450px;"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoKaufman = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker3 = new google.maps.Marker({
+          position: KaufmanAstoriaLatLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'United Artists Kaufman Astoria 14'
+        }); 
+        marker3.addListener('click', function() {
+        InfoKaufman.open(map, marker3);
+        });
+           
+        // Museum of Moving Image
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="thirdHeading" class="thirdHeading">Museum of Museum Image</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "http://www.movingimage.us/visit/images/outsidemuseum_lowres_astoria.jpg" style = "height:180px;width:400px;"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoMuseum = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker4 = new google.maps.Marker({
+          position: MuseumLatLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Museum of Moving Image'
+        }); 
+        marker4.addListener('click', function() {
+        InfoMuseum.open(map, marker4);
+        });
+
+        // Astoria Sports Complex
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="thirdHeading" class="thirdHeading">Astoria Sports Complex</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "http://queensartexpress.com/wp-content/uploads/ASC-Logo.jpg" style = "height: 180px; width: 350px"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoSportsComplex = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker5 = new google.maps.Marker({
+          position: SportsComplex,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Astoria Sports Complex'
+        });
+        marker5.addListener('click', function() {
+        InfoSportsComplex.open(map, marker5);
+        });
+
+        // Queens Library 
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="thirdHeading" class="thirdHeading">Queens Library</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "http://m.queenslibrary.org/sites/default/files/branch_images/broadway.png" style = "height:150px; width:310px;"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoLibrary = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker6 = new google.maps.Marker({
+          position: LibraryLatLng,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Queens Library at Broadway'
+        });
+        marker6.addListener('click', function() {
+        InfoLibrary.open(map, marker6);
+        });
+
+        //Astoria Bookshop
+        var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="thirdHeading" class="thirdHeading">Astoria Bookshop</h1>'+
+          '<div id="bodyContent">'+
+          '<p><img src = "http://weheartastoria.com/wp-content/uploads/2015/04/Astoria-Bookshop-Independent-Bookstore-Day-Astoria-Queens-small-business-broadway-30th-ave.png" style = "height:180px; width:330px"></p>'+
+          '</div>'+
+          '</div>';
+        var InfoBookshop = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker7 = new google.maps.Marker({
+          position: Bookshop,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Astoria Bookshop'
+        });
+        marker7.addListener('click', function() {
+        InfoBookshop.open(map, marker7);
+        });
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
+    </script>
+  </body>
+</html>
